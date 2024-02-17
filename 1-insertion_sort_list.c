@@ -2,6 +2,7 @@
 
 /**
  * insertion_sort_list - sort a list using insertion sort
+ * prints the updated list with every insertion
  * @list: ...
  */
 void insertion_sort_list(listint_t **list)
