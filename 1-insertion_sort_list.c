@@ -13,10 +13,8 @@ void insertion_sort_list(listint_t **list)
 	{
 		/* find destination */
 		destination = curr->prev;
-		while (destination && curr->n < destination->n)
-			destination = destination->prev;
 		/* continue if curr is in correct position */
-		if (destination == curr->prev)
+		if (destination == NULL || destination->n <= curr->n)
 		{
 			curr = curr->next;
 			continue;
@@ -28,23 +26,17 @@ void insertion_sort_list(listint_t **list)
 			ptemp->next = ntemp;
 		if (ntemp)
 			ntemp->prev = ptemp;
-		curr->prev = destination;
 
 		/* handle destination == NULL */
-		if (destination == NULL)
-		{
-			curr->prev = NULL;
-			curr->next = *list;
-			*list = curr;
-			continue;
-		}
-
 		/* place curr in new position */
-		curr->next = destination->next;
-		curr->next->prev = curr;
-		curr->prev = destination;
-		destination->next = curr;
+		curr->next = destination;
+		curr->prev = destination->prev;
+		if (curr->next)
+			curr->next->prev = curr;
+		if (curr->prev)
+			curr->prev->next = curr;
+		else
+			*list = curr;
 		print_list(*list);
-		curr = curr->next;
 	}
 }
