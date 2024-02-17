@@ -8,6 +8,7 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *curr = *list, *destination = NULL, *ptemp, *ntemp;
+	int printed = 0;
 
 	while (curr != NULL)
 	{
@@ -36,5 +37,8 @@ void insertion_sort_list(listint_t **list)
 		else
 			*list = curr;
 		print_list(*list);
+		printed = 1;
 	}
+	if (!printed)
+		print_list(*list);
 }
