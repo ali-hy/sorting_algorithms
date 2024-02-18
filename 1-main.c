@@ -42,7 +42,7 @@ void test_insertion_sort_list(void)
 	const int test_case_sizes[] = {0, 1, 1, 2, 3, 5, 5, 5, 5, 4, 6, 7};
 	int a1[] = {0},				/*Empty list*/
 		a2[] = {42},			/*Single-element list*/
-		a3[] = {42, 42},		/*Identical elements*/
+		a3[] = {84, 42},		/*Identical elements*/
 		a4[] = {42, 21, 42},	/*Duplicate elements*/
 		a5[] = {5, 4, 3, 2, 1}, /*Reversed order*/
 		a6[] = {1, 2, 3, 4, 5}, /*Already sorted*/
