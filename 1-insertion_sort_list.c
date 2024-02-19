@@ -16,7 +16,7 @@ void insertion_sort_list(listint_t **list)
 	{
 		destination = curr->prev;
 		/* continue if curr is in correct position */
-		if (destination->n < curr->n)
+		if (destination->n <= curr->n)
 		{
 			curr = curr->next;
 			continue;
