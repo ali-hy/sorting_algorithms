@@ -55,23 +55,19 @@ void shell_sort(int *array, size_t size)
 
 	while (interval)
 	{
-		/* printf("interval: %d\n", interval); */
 		for (i = 0; (int)i < interval; i++)
 		{
 			for (j = i + interval; j < size; j += interval)
 			{
 				k = j;
-				/* printf("comparing a[%lu] and a[%lu]\n", k, k - interval); */
 				while ((int)k >= interval && array[k] < array[k - interval])
 				{
-					/* printf("swapping a[%lu] and a[%lu] :D\n", k, k - interval); */
 					swap(array + k, array + k - interval);
 					k -= interval;
 				}
 			}
 		}
 		print_array(array, size);
-		/* printf("-----------------------------------\n"); */
 		interval = knuth_prev(interval);
 	}
 }
