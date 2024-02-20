@@ -50,11 +50,12 @@ int knuth_prev(int curr)
  */
 void shell_sort(int *array, size_t size)
 {
-	int interval = get_interval(size);
+	int interval = get_interval(size), swaped;
 	size_t i, j, k;
 
 	while (interval)
 	{
+		swaped = 0;
 		for (i = 0; (int)i < interval; i++)
 		{
 			for (j = i + interval; j < size; j += interval)
@@ -64,10 +65,13 @@ void shell_sort(int *array, size_t size)
 				{
 					swap(array + k, array + k - interval);
 					k -= interval;
+					if (!swaped)
+						swaped = 1;
 				}
 			}
 		}
-		print_array(array, size);
+		if (swaped)
+			print_array(array, size);
 		interval = knuth_prev(interval);
 	}
 }
