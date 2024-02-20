@@ -50,10 +50,20 @@ int knuth_prev(int curr)
  */
 void shell_sort(int *array, size_t size)
 {
-	int interval = get_interval(size);
+	int interval = get_interval(size), sorted = 1;
 	size_t i, j, k;
 
-	while (interval)
+	for (i = 1; i < size; i++)
+		if (array[i] < array[i - 1])
+		{
+			sorted = 0;
+			break;
+		}
+
+	if (sorted)
+		return;
+
+	while (interval >= 1)
 	{
 		for (i = 0; (int)i < interval; i++)
 		{
