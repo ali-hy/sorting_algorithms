@@ -89,7 +89,8 @@ void test_insertion_sort_list(void)
  */
 int main(void)
 {
-	test_insertion_sort_list();
+	/* test_insertion_sort_list(); */
+	insertion_sort_list(NULL);
 
 	return (0);
 }
